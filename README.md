@@ -15,13 +15,17 @@ class SomeThingsController < InheritedResource::Base
     user.build_dependency # build a dependency of user
     user.name = 'Default'
   end
-  resource_has :at_least, 3, :users, { :increments_of => 2 } # will build 3 times if there are no existing users that relate, twice otherwise
-  resource_has :at_most, 3, :users # will only build up to 3 users (i.e. if 3 users already exist as relations, no more will be built)
+  resource_has :at_least, 3, :users, { :increments_of => 2 } # will build 3 times if there are no existing users
+                                                             # that relate, twice otherwise
+  resource_has :at_most, 3, :users # will only build up to 3 users (i.e. if 3 users already exist as relations, no 
+                                   # more will be built)
 end
 </pre>
 <pre>
 Parameters:
-  [ OPTIONAL ] Symbol  Modifier (:at_least | :at_most), at least will ensure that there are at least this many of the relation class, at most will ensure a maximum of quantifier relation classes)
+  [ OPTIONAL ] Symbol  Modifier (:at_least | :at_most), at least will ensure that there are at least this 
+                       many of the relation class, at most will ensure a maximum 
+                       of quantifier relation classes)
   [ OPTIONAL ] Integer Quantifier (i.e. how many to build)
   [ REQUIRED ] Symbol  Relation Name (i.e. :images)
   [ OPTIONAL ] Hash    Options ( :increment_by, :only || :on 
@@ -29,5 +33,6 @@ Parameters:
 ----
 
 # Why?
-I always found myself writing a protected method called build_dependencies and calling it as a before_filter when using Web app theme for Admin sections
+I always found myself writing a protected method called build_dependencies and calling it as a before_filter when 
+using Web app theme for Admin sections
 
