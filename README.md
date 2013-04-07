@@ -4,13 +4,15 @@ Build resource dependencies in controllers that inherit from InheritedResources:
 
 # Usage
 ----
-<pre>
+```ruby
 class Something < ActiveRecord::Base
   has_one :image
   has_many :users
 end
-
+```
+```ruby
 class SomeThingsController < InheritedResource::Base
+
   resource_has :image, :only => %w(edit update) # resource.build_image on edit and update (defaults to edit only)
   resource_has 3, :users # 3.times.do resource.users.build on edit
   resource_has 3, :users, do |user|
@@ -22,7 +24,7 @@ class SomeThingsController < InheritedResource::Base
   resource_has :at_most, 3, :users # will only build up to 3 users (i.e. if 3 users already exist as relations, no 
                                    # more will be built)
 end
-</pre>
+```
 <pre>
 Parameters:
   [ OPTIONAL ] Symbol  Modifier (:at_least | :at_most), at least will ensure that there are at least this 
