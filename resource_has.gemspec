@@ -7,9 +7,9 @@ Gem::Specification.new do |s|
   s.version     = ResourceHas::VERSION
   s.authors     = ["Andy M. Holland"]
   s.email       = ["andyholland1991@aol.com"]
-  s.homepage    = ""
-  s.summary     = %q{TODO: Write a gem summary}
-  s.description = %q{TODO: Write a gem description}
+  s.homepage    = "http://rubygems.org/gems/resource_has"
+  s.summary     = %q{Build resource dependencies in controllers that inherit from InheritedResources::Base}
+  s.description = %q{Adds the class method "resource_has" (for building dependencies) when included by a controller that inherits from InheritedResources::Base}
 
   s.rubyforge_project = "resource_has"
 
@@ -20,5 +20,6 @@ Gem::Specification.new do |s|
 
   # specify any dependencies here; for example:
   # s.add_development_dependency "rspec"
-  # s.add_runtime_dependency "rest-client"
+  
+  s.add_dependency('inherited_resources')
 end
