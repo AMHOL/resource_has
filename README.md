@@ -6,7 +6,8 @@ Build resource dependencies in controllers that inherit from InheritedResources:
 ----
 <code>
 class Something < ActiveRecord::Base; has_one :image; has_many :users; end
-
+</code>
+<code>
 class SomeThingsController < InheritedResource::Base
   resource_has :image, :only => %w(edit update) # resource.build_image on edit and update (defaults to edit only)
   resource_has 3, :users # 3.times.do resource.users.build on edit
